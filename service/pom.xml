@@ -22,28 +22,40 @@
 
     <dependencies>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-<!--        </dependency>-->
+        <!--        引入公共配置模块-->
+        <dependency>
+            <groupId>com.lc</groupId>
+            <artifactId>service_base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
-<!--        &lt;!&ndash;hystrix依赖，主要是用  @HystrixCommand &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.lc</groupId>
+            <artifactId>commom_utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+        <!--        </dependency>-->
 
-<!--        &lt;!&ndash;服务注册&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash;hystrix依赖，主要是用  @HystrixCommand &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+        <!--        </dependency>-->
 
-<!--        &lt;!&ndash;服务调用&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash;服务注册&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash;服务调用&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,6 +72,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.27</version>
         </dependency>
 
         <!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 -->

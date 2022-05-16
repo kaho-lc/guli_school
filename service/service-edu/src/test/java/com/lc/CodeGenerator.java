@@ -21,7 +21,8 @@ public class CodeGenerator {
 
         // 2、全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
+
+//        String projectPath = System.getProperty("user.dir");
 
         //设置代码的输出目录,建议设置绝对路径,否则可能会出现问题
         gc.setOutputDir("D:\\project\\guli_parent\\service\\service-edu" + "/src/main/java");
@@ -51,7 +52,7 @@ public class CodeGenerator {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/guli");
+        dsc.setUrl("jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("000000");
@@ -60,8 +61,8 @@ public class CodeGenerator {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("edu"); //模块名
-        pc.setParent("com.lc.demo");
+        pc.setModuleName("eduservice"); //模块名
+        pc.setParent("com.lc");
         pc.setController("controller");
         pc.setEntity("entity");
         pc.setService("service");
@@ -70,10 +71,16 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
+
+        //设置表的名称
         strategy.setInclude("edu_teacher");
+
+        //将数据表中的表名映射到bean中开启驼峰命名法
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
+
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 
+        //将数据表中的字段名映射到bean中开启驼峰命名法
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
 
