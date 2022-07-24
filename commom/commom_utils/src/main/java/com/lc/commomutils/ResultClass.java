@@ -18,14 +18,14 @@ public class ResultClass {
     private String message;
 
     @ApiModelProperty(value = "返回数据")
-    private Map<String, Object> resultData = new HashMap<>();
+    private Map<String, Object> data = new HashMap<>();
 
     //私有的构造器
     private ResultClass() {
     }
 
     //响应成功
-    public static ResultClass success() {
+    public static ResultClass Success() {
         ResultClass successRes = new ResultClass();
         //封装相关信息
         successRes.setSuccess(true);
@@ -38,7 +38,7 @@ public class ResultClass {
     }
 
     //链式编程
-    public ResultClass success(boolean isSuccess) {
+    public ResultClass Success(boolean isSuccess) {
         this.setSuccess(isSuccess);
         return this;
     }
@@ -54,17 +54,17 @@ public class ResultClass {
     }
 
     public ResultClass data(Map<String, Object> resultData) {
-        this.setResultData(resultData);
+        this.setData(resultData);
         return this;
     }
 
     public ResultClass data(String key, Object value) {
-        this.resultData.put(key, value);
+        this.data.put(key, value);
         return this;
     }
 
     //响应失败
-    public static ResultClass ERROR() {
+    public static ResultClass Error() {
         ResultClass errorRes = new ResultClass();
         //封装相关信息
         errorRes.setSuccess(false);
