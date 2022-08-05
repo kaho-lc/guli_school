@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
 
+//代码生成器
 public class CodeGenerator {
 
     @Test
@@ -28,7 +29,7 @@ public class CodeGenerator {
         gc.setOutputDir("D:\\project\\guli_parent\\service\\service-edu" + "/src/main/java");
 
         //设置作者
-        gc.setAuthor("testjava");
+        gc.setAuthor("kaho");
 
         //生成后是否打开资源管理器
         gc.setOpen(false);
@@ -73,7 +74,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
 
         //设置表的名称
-        strategy.setInclude("edu_teacher");
+        strategy.setInclude("edu_course" , "edu_course_description" , "edu_chapter" , "edu_video");
 
         //将数据表中的表名映射到bean中开启驼峰命名法
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略

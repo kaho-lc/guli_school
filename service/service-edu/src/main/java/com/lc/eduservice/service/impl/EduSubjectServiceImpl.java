@@ -10,7 +10,6 @@ import com.lc.eduservice.listener.SubjectListener;
 import com.lc.eduservice.mapper.EduSubjectMapper;
 import com.lc.eduservice.service.EduSubjectService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
