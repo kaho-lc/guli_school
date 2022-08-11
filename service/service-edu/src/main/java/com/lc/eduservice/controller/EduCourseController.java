@@ -24,9 +24,10 @@ public class EduCourseController {
 
     //添加课程基本信息
     @PostMapping("addCourseInfo")
-    public ResultClass addCourseInfo(@RequestBody CourseInfoVO courseInfoVO){
-        courseService.saveCourseInfo(courseInfoVO);
-        return ResultClass.Success();
+    public ResultClass addCourseInfo(@RequestBody CourseInfoVO courseInfoVO) {
+        //返回添加之后的课程id，为了之后添加课程大纲使用
+        String id = courseService.saveCourseInfo(courseInfoVO);
+        return ResultClass.Success().data("courseId", id);
     }
 
 }

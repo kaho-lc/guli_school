@@ -14,5 +14,5 @@ import com.lc.eduservice.entity.vo.CourseInfoVO;
  */
 public interface EduCourseService extends IService<EduCourse> {
     //添加课程基本信息
-    void saveCourseInfo(CourseInfoVO courseInfoVO);
+    String saveCourseInfo(CourseInfoVO courseInfoVO);
 }
