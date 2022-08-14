@@ -77,6 +77,6 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         }
 
 
-        return null;
+        return finalList;
     }
 }
