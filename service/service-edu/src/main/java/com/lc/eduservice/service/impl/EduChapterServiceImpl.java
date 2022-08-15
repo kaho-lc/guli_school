@@ -54,7 +54,6 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
             //复制
             BeanUtils.copyProperties(eduChapter, chapterVo);
 
-            finalList.add(chapterVo);
 
             //4.遍历查询小节list集合，进行封装
             ArrayList<VideoVo> videoList = new ArrayList<>();
@@ -73,6 +72,9 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
 
             //将小节封装到其对应的章节中
             chapterVo.setChildren(videoList);
+
+            finalList.add(chapterVo);
+
 
         }
 
