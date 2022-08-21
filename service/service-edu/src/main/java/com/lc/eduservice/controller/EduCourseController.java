@@ -30,5 +30,20 @@ public class EduCourseController {
         return ResultClass.Success().data("courseId", id);
     }
 
+    //根据课程查询课程基本信息
+    @GetMapping("/getCourseInfo/{courseId}")
+    public ResultClass getCourseInfo(@PathVariable String courseId) {
+        CourseInfoVO courseInfoVO = courseService.getCourseInfo(courseId);
+        return ResultClass.Success().data("courseInfoVo", courseInfoVO);
+    }
+
+    //修改课程基本信息
+    @PostMapping("/updateCourseInfo")
+    public ResultClass updateCourseInfo(CourseInfoVO courseInfoVO) {
+
+        courseService.updateCourseInfo(courseInfoVO);
+
+        return ResultClass.Success();
+    }
 }
 

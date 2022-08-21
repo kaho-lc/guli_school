@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lc.servicebase.exceptionHandler.GuliException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 /**
@@ -54,5 +55,47 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
         //返回课程id
         return id;
+    }
+
+    @Override
+    public CourseInfoVO getCourseInfo(String courseId) {
+        //1.查询课程表
+        EduCourse eduCourse = baseMapper.selectById(courseId);
+
+        //2.查询课程描述表
+        EduCourseDescription eduCourseDescription = courseDescriptionService.getById(courseId);
+
+        CourseInfoVO courseInfoVO = new CourseInfoVO();
+
+        //将查询出来的eduCourse和eduCourseDescription封装为courseInfoVo
+
+        BeanUtils.copyProperties(eduCourse, courseInfoVO);
+        BeanUtils.copyProperties(eduCourse, eduCourseDescription);
+
+        return courseInfoVO;
+    }
+
+    @Override
+    public void updateCourseInfo(CourseInfoVO courseInfoVO) {
+        //修改课程表
+        EduCourse eduCourse = new EduCourse();
+
+        BeanUtils.copyProperties(courseInfoVO, eduCourse);
+
+        int update = baseMapper.updateById(eduCourse);
+
+        if (update == 0) {
+            //修改失败
+            throw new GuliException(20001, "修改课程信息失败");
+        }
+
+        //修改描述表
+        EduCourseDescription eduCourseDescription = new EduCourseDescription();
+
+        eduCourseDescription.setId(courseInfoVO.getId());
+
+        eduCourseDescription.setDescription(courseInfoVO.getDescription());
+
+        courseDescriptionService.updateById(eduCourseDescription);
     }
 }

@@ -15,5 +15,6 @@ public class ChapterVo {
 
     private String title;
 
+    //一个章节可能包含多个小节
     private ArrayList<VideoVo> children = new ArrayList<>();
 }
